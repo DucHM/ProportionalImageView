@@ -1,17 +1,11 @@
 # ProportionalImageView
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.giuseppegiacoppo/proportional-imageview/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.giuseppegiacoppo/proportional-imageview)
+
 ProportionalImageView is a simple library for your Android project that allows you to set a ratio on Image View component.
 ##Requirements
 The library requires Android **API Level 16+**
 
 ##Usage
-Add a repository to your app-level `build.gradle`:
-
-    repositories {
-        maven {
-            url 'https://dl.bintray.com/giuseppegiacoppo/maven/'
-        }
-    }
-
 Add a dependency to your app-level `build.gradle`:
 
     dependencies {
@@ -34,6 +28,18 @@ Add the `me.giacoppo.proportionalimageview.ProportionalImageView` to your layout
             app:heightUnits="9" />
     </LinearLayout>
     
+That's all. You can set width and height units using `app:widthUnits` and `app:heightUnits` xml attributes, or programmatically:
+    
+    ProportionalImageView proportionalView = (ProportionalImageView) findViewById(R.id.myProportional);
+    proportionalView.setWidthUnits(16);
+    proportionalView.setHeightUnits(9);
+
+You can set the `ratio` too:
+    
+    proportionalView.setRatio(0.5625);
+    
+Remember, ratio is intended as heightUnits/widthUnits.
+
 ##License
     Copyright 2017 Giuseppe Giacoppo
     Licensed under the Apache License, Version 2.0 (the "License");
