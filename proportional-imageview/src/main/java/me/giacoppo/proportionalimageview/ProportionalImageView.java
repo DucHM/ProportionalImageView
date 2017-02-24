@@ -24,6 +24,8 @@ public class ProportionalImageView extends ImageView {
         TypedArray ta = context.getTheme().obtainStyledAttributes(attrs, R.styleable.ProportionalImageView, 0, 0);
         widthUnits = ta.getInt(R.styleable.ProportionalImageView_widthUnits, 1);
         heightUnits = ta.getInt(R.styleable.ProportionalImageView_heightUnits, 1);
+
+        setUnits(widthUnits, heightUnits);
     }
 
     public void setWidthUnits(int units) {
@@ -40,6 +42,15 @@ public class ProportionalImageView extends ImageView {
         } else throw new ProportionalImageViewException("Height units must be greater than 0");
     }
 
+    public void setUnits(int widthUnits, int heightUnits) {
+        if (widthUnits > 0 && heightUnits > 0) {
+            this.widthUnits = widthUnits;
+            this.heightUnits = heightUnits;
+            update();
+        } else
+            throw new ProportionalImageViewException();
+    }
+
     public void setRatio(double _ratio) {
         if (_ratio > 0) {
             ratio = _ratio;
@@ -48,7 +59,7 @@ public class ProportionalImageView extends ImageView {
     }
 
     private void update() {
-        ratio = heightUnits / widthUnits;
+        ratio = ((double) heightUnits) / widthUnits;
         requestLayout();
     }
 
@@ -62,9 +73,10 @@ public class ProportionalImageView extends ImageView {
     }
 
     private class ProportionalImageViewException extends RuntimeException {
-        ProportionalImageViewException(){
+        ProportionalImageViewException() {
             super("Ratio must be greater than 0");
         }
+
         ProportionalImageViewException(String message) {
             super(message);
         }
