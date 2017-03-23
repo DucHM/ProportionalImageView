@@ -2,10 +2,8 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.giuseppegiacoppo/proportional-imageview/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.giuseppegiacoppo/proportional-imageview)
 
 ProportionalImageView is a simple library for your Android project that allows you to set a ratio on Image View component.
-##Requirements
-The library requires Android **API Level 16+**
 
-##Usage
+## Usage
 Add a dependency to your app-level `build.gradle`:
 
     dependencies {
@@ -40,7 +38,7 @@ You can set the `ratio` too:
     
 Remember, ratio is intended as heightUnits/widthUnits.
 
-##License
+## License
     Copyright 2017 Giuseppe Giacoppo
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
